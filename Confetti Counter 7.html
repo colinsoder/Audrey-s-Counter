@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audrey's Timer</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #111, #333); /* Dark background for high-tech feel */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: #222; /* Dark metallic background */
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            width: 360px;
+            transform: rotateX(10deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .increase-button {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1c1c1c, #4b4b4b); /* Steel metallic gradient */
+            color: #00ff99; /* Futuristic green color */
+            font-size: 80px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            text-transform: uppercase;
+        }
+
+        .increase-button:hover {
+            background: linear-gradient(135deg, #444, #777); /* Darker metallic color */
+            transform: scale(1.05);
+        }
+
+        .reset-button {
+            margin-top: 50px; /* Space below the increase button */
+            padding: 14px 30px;
+            background-color: #e74c3c; /* Futuristic red with a slightly orange hue */
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .reset-button:hover {
+            background-color: #c0392b; /* Darker red */
+        }
+
+        /* Glowing effect for the increase button when count reaches 7 */
+        .increase-button.active {
+            background: linear-gradient(45deg, #00ff99, #009900);
+            box-shadow: 0 0 30px rgba(0, 255, 153, 0.8);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Audrey's Counter</h1>
+        <button class="increase-button" id="increaseButton" onclick="increment()">0</button>
+        <button class="reset-button" onclick="reset()">Reset</button>
+    </div>
+
+    <script>
+        let count = 0;
+
+        function increment() {
+            count++; // Increase by 1
+            document.getElementById('increaseButton').innerText = count; // Update the button text with the current count
+
+            if (count === 7) { // Check if count reaches 7
+                document.getElementById('increaseButton').classList.add('active'); // Add glowing effect
+            }
+        }
+
+        function reset() {
+            count = 0;
+            document.getElementById('increaseButton').innerText = count; // Reset the button text to 0
+            document.getElementById('increaseButton').classList.remove('active'); // Remove glowing effect
+        }
+    </script>
+</body>
+</html>
